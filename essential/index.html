@@ -16,7 +16,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-16459946063');
 </script>
-<style>
+  <style>
 /* Style adjustments */
 body {
   background: #ffe5ce;
@@ -64,10 +64,10 @@ body {
   
   <!-- Country Cards -->
   <div class="mb-4">
-    <div class="card" onclick="redirectToAffiliate('au');">
+    <div class="card" onclick="trackConversionAndRedirect('https://example.com/affiliate-link-for-au', 'AW-16459946063/qrvGCN2M_JEZEM-w26g9')">
       <img src="https://flagcdn.com/au.svg" class="flag-icon" alt="Australia flag">Australia
     </div>
-    <div class="card" onclick="redirectToAffiliate('nz');">
+    <div class="card" onclick="trackConversionAndRedirect('https://example.com/affiliate-link-for-nz', 'AW-16459946063/XiLZCKCYgpIZEM-w26g9')">
       <img src="https://flagcdn.com/nz.svg" class="flag-icon" alt="New Zealand flag">New Zealand
     </div>    
   </div>
@@ -87,28 +87,19 @@ body {
   
   <!-- Footer Links -->
   <div class="text-center text-xs text-gray-600">
-<a href="terms.html" class="hover:text-gray-800">Terms & Conditions</a> | 
-    <a href="privacy.html" class="hover:text-gray-800">Privacy Policy</a>
+    <a class='hover:text-gray-800' href='/terms'>Terms & Conditions</a> | 
+    <a class='hover:text-gray-800' href='/privacy'>Privacy Policy</a>
   </div>
 </div>
 
 <script>
-  // Redirect function that includes Google Ads conversion tracking
-  function redirectToAffiliate(countryCode) {
-    // Define the affiliate URL here if you decide to make it visible within the page
-    const affiliateUrl = `https://www.example.com/redirect?country=${countryCode}`;
-    
-    // Trigger conversion tracking before redirecting
+  function trackConversionAndRedirect(url, conversionLabel) {
     gtag('event', 'conversion', {
-      'send_to': 'AW-16459946063/XiLZCKCYgpIZEM-w26g9',
+      'send_to': conversionLabel,
       'event_callback': function() {
-        // Redirect to the affiliate URL after tracking the conversion
-        document.location = affiliateUrl;
+        window.location.href = url;
       }
     });
-    
-    // Prevent default anchor click behavior
-    return false;
   }
 </script>
 
