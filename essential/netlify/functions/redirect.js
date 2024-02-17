@@ -6,7 +6,7 @@ function gtag_report_conversion(url) {
         }
     };
     gtag('event', 'conversion', {
-        'send_to': 'TAG_ID/CONVERSION_LABEL',
+        'send_to': '16459946063',
         'value': 1.0,
         'currency': 'USD',
         'event_callback': callback
